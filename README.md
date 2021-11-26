@@ -1,2 +1,5 @@
 # vanilla-flat-white
-microprojects in vanilla js
+
+Microprojects in Vanilla JavaScript.
+
+See the live site [here](https://vandivier.github.io/vanilla-flat-white)!
