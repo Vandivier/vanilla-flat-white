@@ -1,0 +1,29 @@
+{
+  "name": "vanilla-flat-white",
+  "version": "1.0.0",
+  "description": "a collection of microprojects in HTML, CSS, and Vanilla JS",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx http-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vandivier/vanilla-flat-white.git"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "javascript",
+    "ecmascript",
+    "vanilla",
+    "js",
+    "microfrontends"
+  ],
+  "author": "John Vandivier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Vandivier/vanilla-flat-white/issues"
+  },
+  "homepage": "https://github.com/Vandivier/vanilla-flat-white#readme"
+}
