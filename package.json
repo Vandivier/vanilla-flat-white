@@ -4,6 +4,7 @@
     "description": "a collection of microprojects in HTML, CSS, and Vanilla JS",
     "main": "index.js",
     "scripts": {
+        "build": "rm -rf dist/ && node build.js",
         "deploy-reference": "git add out/ && git commit -m \"Deploy to gh-pages\" && git subtree push --prefix out origin gh-pages",
         "deploy": "node build.js && git add dist/ && git commit -m \"Deploy to gh-pages\" && git subtree push --prefix dist origin gh-pages",
         "start": "npx http-server ./src",
