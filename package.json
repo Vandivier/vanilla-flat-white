@@ -1,29 +1,31 @@
 {
-  "name": "vanilla-flat-white",
-  "version": "1.0.0",
-  "description": "a collection of microprojects in HTML, CSS, and Vanilla JS",
-  "main": "index.js",
-  "scripts": {
-    "start": "npx http-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Vandivier/vanilla-flat-white.git"
-  },
-  "keywords": [
-    "html",
-    "css",
-    "javascript",
-    "ecmascript",
-    "vanilla",
-    "js",
-    "microfrontends"
-  ],
-  "author": "John Vandivier",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Vandivier/vanilla-flat-white/issues"
-  },
-  "homepage": "https://github.com/Vandivier/vanilla-flat-white#readme"
+    "name": "vanilla-flat-white",
+    "version": "1.0.0",
+    "description": "a collection of microprojects in HTML, CSS, and Vanilla JS",
+    "main": "index.js",
+    "scripts": {
+        "deploy-reference": "git add out/ && git commit -m \"Deploy to gh-pages\" && git subtree push --prefix out origin gh-pages",
+        "deploy": "node build.js && git add dist/ && git commit -m \"Deploy to gh-pages\" && git subtree push --prefix dist origin gh-pages",
+        "start": "npx http-server ./src",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Vandivier/vanilla-flat-white.git"
+    },
+    "keywords": [
+        "html",
+        "css",
+        "javascript",
+        "ecmascript",
+        "vanilla",
+        "js",
+        "microfrontends"
+    ],
+    "author": "John Vandivier",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Vandivier/vanilla-flat-white/issues"
+    },
+    "homepage": "https://github.com/Vandivier/vanilla-flat-white#readme"
 }
