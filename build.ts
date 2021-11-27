@@ -35,7 +35,6 @@ fsWalk.walk('./dist', (error, entries) => {
         .filter((entry) => entry.dirent.isFile())
         .forEach((entry) => {
             const oldFileContent = fs.readFileSync(path.resolve(entry.path), 'utf8');
-            // TODO: replace all anchor within dist html `href="/` with `href="/vanilla-flat-white`
             const newFileContent = oldFileContent.replace(REGEX_HREF_PREFIX, `href="/vanilla-flat-white/`);
             fs.writeFileSync(entry.path, newFileContent);
         });
