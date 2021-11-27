@@ -22,6 +22,7 @@
 
             /* Alive turkey*/
             .turkey {
+                cursor: pointer;
                 width: 100px;
                 margin: 100px auto;
                 text-align: center;
@@ -198,6 +199,10 @@
                 top: 32px;
                 left: 86px;
             }
+
+            #gobble-player {
+                display: none;
+            }
         </style>
     </head>
     <body>
@@ -206,7 +211,13 @@
             <h4>This turkey code was kind of stolen, but it's also kind of original!</h4>
             <section id="microproject-root">
                 <!-- TODO: update stolen turkey ref #5 -->
-                <div class="turkey">
+
+                <audio controls id="gobble-player">
+                    <source src="gobble.mp3" type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                </audio>
+
+                <div class="turkey" onclick="doSquawk()">
                     <span class="feather"></span>
                     <span class="feather"></span>
                     <span class="feather"></span>
@@ -234,5 +245,12 @@
                 <a href="/the-stolen-turkey">The Stolen Turkey</a>
             </nav>
         </main>
+
+        <script>
+            const doSquawk = () => {
+                const elGobblePlayer = document.getElementById('gobble-player');
+                elGobblePlayer.play();
+            };
+        </script>
     </body>
 </html>
