@@ -1,44 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>vanilla-flat-white</title>
-    <style>
-      body,
-      html {
-        background: #f1fdfa;
-        padding: 0;
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-          Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-      }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>vanilla-flat-white</title>
+        <style>
+            body,
+            html {
+                background: #f1fdfa;
+                padding: 0;
+                margin: 0;
+                font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+                    Helvetica Neue, sans-serif;
+            }
 
-      main {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <h1>The Stolen Turkey</h1>
-      <h4>
-        This turkey code was kind of stolen, but it's also kind of original!
-      </h4>
-      <section id="microproject-root">
-        <!-- that stolen turkey should reflect
-      https://codepen.io/nourabusoud/pen/ZbdoGq BUT: 1. no jiggly eyes, 2.
-      dynamic tailfeather color, 3. squacks on click
-     -->
-        TODO
-      </section>
+            main {
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+            }
 
-      <nav className="side-menu">
-        <a href="/">Home</a>
-        <a href="/the-stolen-turkey">The Stolen Turkey</a>
-      </nav>
-    </main>
-  </body>
+            /* Alive turkey*/
+            .turkey {
+                width: 100px;
+                margin: 100px auto;
+                text-align: center;
+                position: relative;
+            }
+            .turkey-body {
+                margin: auto;
+                width: 60px;
+                height: 60px;
+                background-color: #975d35;
+                border-radius: 50%;
+                position: relative;
+            }
+
+            .head {
+                margin: auto;
+                width: 40px;
+                height: 40px;
+                position: relative;
+                background-color: #975d35;
+                border-radius: 50%;
+                top: 15px;
+            }
+
+            .eye {
+                width: 13px;
+                height: 15px;
+                border-radius: 50%;
+                background-color: white;
+                position: absolute;
+                top: 5px;
+            }
+
+            .eye:after {
+                content: '';
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                background-color: black;
+                border-radius: 50%;
+                top: 5px;
+            }
+            .eye-left {
+                left: 6px;
+            }
+
+            .eye-right:after {
+                left: 1px;
+                top: 4px;
+                width: 7px;
+                height: 7px;
+                animation: eye_ball_right 0.5s linear infinite;
+            }
+            .eye-right {
+                left: 18px;
+            }
+
+            .eye-left:after {
+                right: 1px;
+                animation: eye_ball_left 0.5s linear infinite;
+            }
+
+            .beak {
+                position: relative;
+                top: 17px;
+                left: 12px;
+                width: 0;
+                height: 0;
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-top: 14px solid #be2928;
+                z-index: 1;
+                border-radius: 50%;
+            }
+
+            .beak:before {
+                content: '';
+                position: absolute;
+                top: -14px;
+                left: -6px;
+                width: 0;
+                height: 0;
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-top: 8px solid #faa14a;
+                border-radius: 50%;
+            }
+
+            .feather {
+                display: inline-block;
+                height: 60px;
+                width: 14px;
+                border-radius: 63%;
+                background-color: #5f3917;
+                position: absolute;
+                bottom: 30px;
+                border: 1px solid #f0a54b;
+                border-top: 10px solid #be2928;
+                box-sizing: border-box;
+            }
+
+            .feather:nth-child(1) {
+                transform: rotate(-90deg);
+                top: 33px;
+                left: 0;
+            }
+
+            .feather:nth-child(2) {
+                transform: rotate(-80deg);
+                top: 20px;
+                left: 0;
+            }
+
+            .feather:nth-child(3) {
+                transform: rotate(-70deg);
+                top: 8px;
+                left: 4px;
+            }
+
+            .feather:nth-child(4) {
+                transform: rotate(-60deg);
+                top: -2px;
+                left: 10px;
+            }
+
+            .feather:nth-child(5) {
+                transform: rotate(-50deg);
+                top: -10px;
+                left: 18px;
+            }
+
+            .feather:nth-child(6) {
+                transform: rotate(-35deg);
+                top: -18px;
+                left: 29px;
+            }
+
+            .feather:nth-child(7) {
+                transform: rotate(-3deg);
+                top: -20px;
+                left: 40px;
+            }
+
+            .feather:nth-child(8) {
+                transform: rotate(24deg);
+                top: -17px;
+                left: 50px;
+            }
+
+            .feather:nth-child(9) {
+                transform: rotate(36deg);
+                top: -12px;
+                left: 62px;
+            }
+
+            .feather:nth-child(10) {
+                transform: rotate(45deg);
+                top: -4px;
+                left: 72px;
+            }
+
+            .feather:nth-child(11) {
+                transform: rotate(55deg);
+                top: 6px;
+                left: 80px;
+            }
+            .feather:nth-child(12) {
+                transform: rotate(75deg);
+                top: 18px;
+                left: 85px;
+            }
+            .feather:nth-child(13) {
+                transform: rotate(83deg);
+                top: 32px;
+                left: 86px;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1>The Stolen Turkey</h1>
+            <h4>This turkey code was kind of stolen, but it's also kind of original!</h4>
+            <section id="microproject-root">
+                <!-- TODO: update stolen turkey ref #5 -->
+                <div class="turkey">
+                    <span class="feather"></span>
+                    <span class="feather"></span>
+                    <span class="feather"></span>
+                    <span class="feather"></span>
+                    <span class="feather"></span>
+                    <span class="feather"></span>
+                    <span class="feather"></span>
+                    <span class="feather"></span>
+                    <span class="feather"></span>
+                    <span class="feather"></span>
+                    <span class="feather"></span>
+                    <span class="feather"></span>
+                    <span class="feather"></span>
+                    <div class="head">
+                        <div class="eye eye-left"></div>
+                        <div class="eye eye-right"></div>
+                        <div class="beak"></div>
+                    </div>
+                    <div class="turkey-body"></div>
+                </div>
+            </section>
+
+            <nav className="side-menu">
+                <a href="/">Home</a>
+                <a href="/the-stolen-turkey">The Stolen Turkey</a>
+            </nav>
+        </main>
+    </body>
 </html>
