@@ -6,7 +6,7 @@
     "scripts": {
         "build": "rm -rf dist/ && tsc build.ts && node build.js",
         "deploy-reference": "git add out/ && git commit -m \"Deploy to gh-pages\" && git subtree push --prefix out origin gh-pages",
-        "deploy": "npm run build && git add dist/ && git commit -m \"Deploy to gh-pages\" && git subtree push --prefix dist origin gh-pages",
+        "deploy": "npm run build && rm .gitignore && add dist/ && git commit -m \"Deploy to gh-pages\" && git subtree push --prefix dist origin gh-pages && git checkout origin/main .gitignore",
         "start": "npx http-server ./src",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
