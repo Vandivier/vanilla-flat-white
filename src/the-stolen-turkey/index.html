@@ -8,7 +8,7 @@
             body,
             html {
                 background: #f1fdfa;
-                padding: 0;
+                padding: 0.5rem;
                 margin: 0;
                 font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
                     Helvetica Neue, sans-serif;
@@ -206,14 +206,20 @@
         </style>
     </head>
     <body>
+        <nav className="side-menu">
+            <a href="/">Home</a>
+            <a href="/the-stolen-turkey">The Stolen Turkey</a>
+        </nav>
+
         <main>
             <h1>The Stolen Turkey</h1>
             <h4>This turkey code was kind of stolen, but it's also kind of original!</h4>
             <section id="microproject-root">
-                <!-- TODO: update stolen turkey ref #5 -->
-
                 <audio controls id="gobble-player">
-                    <source src="gobble.mp3" type="audio/mpeg" />
+                    <source
+                        src="https://raw.githubusercontent.com/Vandivier/vanilla-flat-white/main/src/the-stolen-turkey/gobble.mp3"
+                        type="audio/mpeg"
+                    />
                     Your browser does not support the audio element.
                 </audio>
 
@@ -238,18 +244,38 @@
                     </div>
                     <div class="turkey-body"></div>
                 </div>
-            </section>
 
-            <nav className="side-menu">
-                <a href="/">Home</a>
-                <a href="/the-stolen-turkey">The Stolen Turkey</a>
-            </nav>
+                <form onsubmit="updateTailfeathers(event)">
+                    <label for="tailfeather-hex-text">Hex Code for Tailfeather Color</label>
+                    <br />
+                    <input id="tailfeather-hex-text" type="text" placeholder="be2928" />
+                    <input type="submit" />
+                </form>
+            </section>
         </main>
 
         <script>
             const doSquawk = () => {
                 const elGobblePlayer = document.getElementById('gobble-player');
                 elGobblePlayer.play();
+            };
+
+            const updateTailfeathers = (event) => {
+                const elInputHexText = document.getElementById('tailfeather-hex-text');
+                const newHexColor = elInputHexText.value.replace(/[^a-z0-9]/g, '');
+                const isHexBadLength = newHexColor.length !== 6 || newHexColor !== elInputHexText.value;
+                event.preventDefault();
+
+                if (isHexBadLength) {
+                    alert('Hex code must be six alphanumeric characters and in lower case.');
+                } else {
+                    const feathers = document.getElementsByClassName('feather');
+
+                    for (let i = 0; i < feathers.length; i++) {
+                        const elCurrFeather = feathers[i];
+                        elCurrFeather.style.borderTop = `10px solid #${newHexColor}`;
+                    }
+                }
             };
         </script>
     </body>
