@@ -5,7 +5,9 @@
     "main": "index.js",
     "scripts": {
         "build": "rm -rf dist/ && tsc build.ts && node build.js",
-        "deploy": "npm run build && rm .gitignore && git add dist/ && git commit -m \"Deploy to gh-pages\" && git push origin `git subtree split --prefix dist main`:gh-pages --force && git reset --hard origin/main",
+        "ghp-clean": "git reset --hard origin/main && git branch -D gh-pages",
+        "ghp-make": "rm .gitignore && git add dist/ && git subtree split --prefix dist -b gh-pages && git commit -m \"Deploy to gh-pages\" && git subtree split --prefix dist -b gh-pages && git push -f origin gh-pages:gh-pages",
+        "deploy": "npm run build && npm run ghp-make && npm run ghp-clean",
         "start": "npx http-server ./src",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
