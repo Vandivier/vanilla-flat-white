@@ -1,61 +1,72 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <style>
-        /* Theme Ref: https://paletton.com/#uid=5000u0kllllaFw0g0qFqFg0w0aF */
+    <head>
+        <style>
+            /* Theme Ref: https://paletton.com/#uid=5000u0kllllaFw0g0qFqFg0w0aF */
 
-        :root {
-            --valentine-gold: rgba(255, 209, 170, 1);
-            --valentine-light-gold: rgba(255, 209, 170, 0.25);
-            --valentine-pink: rgba(212, 106, 106, 1);
-            --valentine-light-purple: rgb(35, 32, 34);
-            --valentine-dark-purple: rgba(102, 17, 65, 1);
-            --valentine-very-dark-purple: rgba(68, 0, 39, 1);
-        }
+            :root {
+                --valentine-gold: rgba(255, 209, 170, 1);
+                --valentine-light-gold: rgba(255, 209, 170, 0.25);
+                --valentine-pink: rgba(212, 106, 106, 1);
+                --valentine-light-purple: rgb(35, 32, 34);
+                --valentine-dark-purple: rgba(102, 17, 65, 1);
+                --valentine-very-dark-purple: rgba(68, 0, 39, 1);
+            }
 
-        body {
-            background-color: rgba(255, 209, 170, 0.25);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+            body {
+                background-color: var(--valentine-light-gold);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
 
-        .heart {
-            width: 100px;
-            height: 100px;
-            background-color: var(--valentine-pink);
-            position: relative;
-            transform: rotate(-45deg);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+            .heart-wrapper {
+                position: relative;
+                width: 140px;
+                height: 140px;
+                /* display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: auto; */
+            }
 
-        .heart-circle {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background-color: var(--valentine-pink);
-            border-radius: 50%;
-        }
+            .heart {
+                width: 100px;
+                height: 100px;
+                background-color: var(--valentine-pink);
+                position: absolute;
+                bottom: 0;
+                transform: rotate(-45deg);
+                border-left: 2px solid var(--valentine-light-purple);
+                border-bottom: 2px solid var(--valentine-light-purple);
+            }
 
-        .left-circle {
-            top: -50px;
-            left: 0;
-        }
+            .heart-circle {
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                background-color: var(--valentine-pink);
+                border-radius: 50%;
+                border: 2px solid var(--valentine-light-purple);
+                z-index: -1;
+            }
 
-        .right-circle {
-            top: 0;
-            left: 50px;
-        }
-    </style>
-</head>
-<body>
-    <div class="heart">
-        <div class="heart-circle left-circle"></div>
-        <div class="heart-circle right-circle"></div>
-    </div>
-</body>
+            .left-circle {
+                left: -36px;
+            }
+
+            .right-circle {
+                left: 34px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="heart-wrapper">
+            <div class="heart"></div>
+            <div class="heart-circle left-circle"></div>
+            <div class="heart-circle right-circle"></div>
+        </div>
+    </body>
 </html>
