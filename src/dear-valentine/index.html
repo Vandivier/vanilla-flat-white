@@ -2,8 +2,27 @@
 <html>
     <head>
         <style>
-            /* Theme Ref: https://paletton.com/#uid=5000u0kllllaFw0g0qFqFg0w0aF */
+            body,
+            html {
+                background: #f1fdfa;
+                padding: 0;
+                margin: 0;
+                font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+                    Helvetica Neue, sans-serif;
+            }
 
+            body {
+                display: flex;
+                flex-direction: column;
+                height: 100vh;
+                width: 100%;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+
+            /* Theme Ref: https://paletton.com/#uid=5000u0kllllaFw0g0qFqFg0w0aF */
             :root {
                 --valentine-gold: rgba(255, 209, 170, 1);
                 --valentine-light-gold: rgba(255, 209, 170, 0.25);
@@ -15,6 +34,15 @@
                 --heart-border-thickness: 3px;
             }
 
+            main {
+                align-items: center;
+                background-color: var(--valentine-light-gold);
+                display: flex;
+                height: 100vh;
+                justify-content: center;
+                margin: 0;
+            }
+
             @keyframes spin {
                 from {
                     transform: rotate(0deg);
@@ -24,44 +52,31 @@
                 }
             }
 
-            body {
-                background-color: var(--valentine-light-gold);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-            }
-
             .heart-wrapper {
+                /* grid allows interior flex
+                combined with absolute and relative positioning */
                 display: grid;
-                /* using a grid on `.heart-wrapper` allows:
-                  1. a combination of absolute and relative positioning
-                  2. the spinner can align and justify self,
-                      while other elements are not flex
-                */
-
-                position: relative;
-                width: 140px;
                 height: 140px;
                 margin: auto;
+                position: relative;
+                width: 140px;
             }
 
             .heart-wrapper-spinner {
                 align-self: center;
-                justify-self: center;
-                width: 200%;
-                height: 200%;
+                animation: spin 36s linear infinite;
                 background-image: repeating-conic-gradient(from 0deg, var(--valentine-gold) 0deg 10deg, transparent 10deg 20deg);
                 background-size: cover;
-                transform: translate(-50%, -50%) rotate(0deg);
-                transform-origin: center;
                 border-radius: 50%;
-                z-index: -2;
-                animation: spin 36s linear infinite;
-                transition: opacity 0.5s ease-in-out;
+                height: 200%;
+                justify-self: center;
                 opacity: 0;
                 position: absolute;
+                transform-origin: center;
+                transform: translate(-50%, -50%) rotate(0deg);
+                transition: opacity 0.5s ease-in-out;
+                width: 200%;
+                z-index: 2;
             }
 
             .heart-wrapper:hover .heart-wrapper-spinner {
@@ -79,22 +94,23 @@
             }
 
             .heart {
-                width: 100px;
+                border-bottom: var(--heart-border-thickness) solid var(--valentine-light-purple);
+                border-left: var(--heart-border-thickness) solid var(--valentine-light-purple);
+                bottom: 0;
                 height: 100px;
                 position: absolute;
-                bottom: 0;
                 transform: rotate(-45deg);
-                border-left: var(--heart-border-thickness) solid var(--valentine-light-purple);
-                border-bottom: var(--heart-border-thickness) solid var(--valentine-light-purple);
+                width: 100px;
+                z-index: 99;
             }
 
             .heart-circle {
-                position: absolute;
-                width: 100px;
-                height: 100px;
                 border-radius: 50%;
                 border: var(--heart-border-thickness) solid var(--valentine-light-purple);
-                z-index: -1;
+                height: 100px;
+                position: absolute;
+                width: 100px;
+                z-index: 10;
             }
 
             .left-circle {
@@ -107,11 +123,23 @@
         </style>
     </head>
     <body>
-        <div class="heart-wrapper">
-            <div class="heart"></div>
-            <div class="heart-circle left-circle"></div>
-            <div class="heart-circle right-circle"></div>
-            <div class="heart-wrapper-spinner"></div>
-        </div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/dear-valentine">Dear Valentine</a>
+            <a href="/the-stolen-turkey">The Stolen Turkey</a>
+
+            <!-- TODO: implement https://github.com/Vandivier/vanilla-flat-white/issues/9
+                <a href="/blackjack-game">Blackjack Game</a>
+            -->
+        </nav>
+
+        <main>
+            <div class="heart-wrapper">
+                <div class="heart"></div>
+                <div class="heart-circle left-circle"></div>
+                <div class="heart-circle right-circle"></div>
+                <div class="heart-wrapper-spinner"></div>
+            </div>
+        </main>
     </body>
 </html>

@@ -8,10 +8,21 @@
             body,
             html {
                 background: #f1fdfa;
-                padding: 0.5rem;
+                padding: 0;
                 margin: 0;
                 font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
                     Helvetica Neue, sans-serif;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+                height: 100vh;
+                width: 100%;
+            }
+
+            nav {
+                padding: 1rem;
             }
 
             main {
@@ -206,8 +217,9 @@
         </style>
     </head>
     <body>
-        <nav className="side-menu">
+        <nav>
             <a href="/">Home</a>
+            <a href="/dear-valentine">Dear Valentine</a>
             <a href="/the-stolen-turkey">The Stolen Turkey</a>
         </nav>
 
