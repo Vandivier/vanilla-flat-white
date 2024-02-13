@@ -2,17 +2,30 @@
 <html>
 <head>
     <style>
+        /* Theme Ref: https://paletton.com/#uid=5000u0kllllaFw0g0qFqFg0w0aF */
+
+        :root {
+            --valentine-gold: rgba(255, 209, 170, 1);
+            --valentine-light-gold: rgba(255, 209, 170, 0.25);
+            --valentine-pink: rgba(212, 106, 106, 1);
+            --valentine-light-purple: rgb(35, 32, 34);
+            --valentine-dark-purple: rgba(102, 17, 65, 1);
+            --valentine-very-dark-purple: rgba(68, 0, 39, 1);
+        }
+
         body {
+            background-color: rgba(255, 209, 170, 0.25);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
         }
+
         .heart {
             width: 100px;
             height: 100px;
-            background-color: red;
+            background-color: var(--valentine-pink);
             position: relative;
             transform: rotate(-45deg);
             display: flex;
@@ -24,7 +37,7 @@
             position: absolute;
             width: 100px;
             height: 100px;
-            background-color: red;
+            background-color: var(--valentine-pink);
             border-radius: 50%;
         }
 
