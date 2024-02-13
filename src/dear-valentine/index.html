@@ -8,9 +8,20 @@
                 --valentine-gold: rgba(255, 209, 170, 1);
                 --valentine-light-gold: rgba(255, 209, 170, 0.25);
                 --valentine-pink: rgba(212, 106, 106, 1);
+                --valentine-light-pink: hsl(0, 55%, 80%);
                 --valentine-light-purple: rgb(35, 32, 34);
                 --valentine-dark-purple: rgba(102, 17, 65, 1);
                 --valentine-very-dark-purple: rgba(68, 0, 39, 1);
+                --heart-border-thickness: 3px;
+            }
+
+            @keyframes spin {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
             }
 
             body {
@@ -23,42 +34,75 @@
             }
 
             .heart-wrapper {
+                display: grid;
+                /* using a grid on `.heart-wrapper` allows:
+                  1. a combination of absolute and relative positioning
+                  2. the spinner can align and justify self,
+                      while other elements are not flex
+                */
+
                 position: relative;
                 width: 140px;
                 height: 140px;
-                /* display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: auto; */
+                margin: auto;
+            }
+
+            .heart-wrapper-spinner {
+                align-self: center;
+                justify-self: center;
+                width: 200%;
+                height: 200%;
+                background-image: repeating-conic-gradient(from 0deg, var(--valentine-gold) 0deg 10deg, transparent 10deg 20deg);
+                background-size: cover;
+                transform: translate(-50%, -50%) rotate(0deg);
+                transform-origin: center;
+                border-radius: 50%;
+                z-index: -2;
+                animation: spin 36s linear infinite;
+                transition: opacity 0.5s ease-in-out;
+                opacity: 0;
+                position: absolute;
+            }
+
+            .heart-wrapper:hover .heart-wrapper-spinner {
+                opacity: 1;
+            }
+
+            .heart,
+            .heart-circle {
+                background-color: var(--valentine-pink);
+            }
+
+            .heart-wrapper:hover .heart,
+            .heart-wrapper:hover .heart-circle {
+                background-color: var(--valentine-light-pink);
             }
 
             .heart {
                 width: 100px;
                 height: 100px;
-                background-color: var(--valentine-pink);
                 position: absolute;
                 bottom: 0;
                 transform: rotate(-45deg);
-                border-left: 2px solid var(--valentine-light-purple);
-                border-bottom: 2px solid var(--valentine-light-purple);
+                border-left: var(--heart-border-thickness) solid var(--valentine-light-purple);
+                border-bottom: var(--heart-border-thickness) solid var(--valentine-light-purple);
             }
 
             .heart-circle {
                 position: absolute;
                 width: 100px;
                 height: 100px;
-                background-color: var(--valentine-pink);
                 border-radius: 50%;
-                border: 2px solid var(--valentine-light-purple);
+                border: var(--heart-border-thickness) solid var(--valentine-light-purple);
                 z-index: -1;
             }
 
             .left-circle {
-                left: -36px;
+                left: -35px;
             }
 
             .right-circle {
-                left: 34px;
+                left: 32px;
             }
         </style>
     </head>
@@ -67,6 +111,7 @@
             <div class="heart"></div>
             <div class="heart-circle left-circle"></div>
             <div class="heart-circle right-circle"></div>
+            <div class="heart-wrapper-spinner"></div>
         </div>
     </body>
 </html>
