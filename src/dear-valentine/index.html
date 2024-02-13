@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .heart {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            transform: rotate(-45deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .heart-circle {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .left-circle {
+            top: -50px;
+            left: 0;
+        }
+
+        .right-circle {
+            top: 0;
+            left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="heart">
+        <div class="heart-circle left-circle"></div>
+        <div class="heart-circle right-circle"></div>
+    </div>
+</body>
+</html>
